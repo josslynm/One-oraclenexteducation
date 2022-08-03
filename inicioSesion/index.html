@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alura</title>
+</head>
+<body>
+    <h1>ALURA</h1>
+    
+    
+<script>
+    function saltarLinea() {
+    document.write("<br>");   
+    document.write("<br>");    
+        
+    }  
+
+    function imprimir(frase) {
+    document.write(frase);
+    saltarLinea();
+    }
+
+    var inicioDeSesionRegistrado = "alura";
+    var contrasenhaRegistrada = "alura321";
+
+
+
+    let intentos =3;
+    let i= 1;
+    while(i <= intentos){
+
+        var inicioDeSesionIngresado = prompt("Ingrese su usuario");
+        var contrasenhaIngresada = prompt("Ingrese su contraseña");
+        if( inicioDeSesionRegistrado == inicioDeSesionIngresado && contrasenhaRegistrada == contrasenhaIngresada ) {
+            imprimir("Bienvenido al sistema " + inicioDeSesionIngresado);
+            break;
+        
+        } else if(i == intentos ){
+            alert("inicio de sesión inválido. Fue tu ultimo intento para iniciar sesión");
+        }
+        else{
+            alert("inicio de sesión inválido. Intentalo de nuevo");
+        }
+
+        i++;
+
+    }
+  
+</script>
+
+</body>
+</html>
