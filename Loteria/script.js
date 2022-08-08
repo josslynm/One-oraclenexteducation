@@ -15,18 +15,27 @@ function sortea(n) {
 }
 
 
-var numeroPensado = sortea(15);
+var numeroPensado = sortea(10);
 
-test1 = prompt("Adivina el numero: ");
+let intentos =3;
+let i= 1;
 
-if(numeroPensado == test1){
-    imprimir("¡Bien jugado! ¡Adivinaste!")
-}
-else if(numeroPensado > test1){
-    imprimir(`Numero equivocado, tu numero lanzado es menor a ${numeroPensado}`)
-}
-else if(numeroPensado <test1){
-    imprimir(`Tu numero lanzado es mayor a ${numeroPensado}` )
-}else{
-    imprimir("No ingresaste un número")
+while(i <= intentos){
+
+    test1 = prompt("Adivina el numero: ");
+
+    if(numeroPensado == test1){
+        alert(`¡Bien jugado! ¡Adivinaste en el intento ${i}!`)
+        break;
+    }
+    else if(test1 === null){
+        alert(`Fin del juego`);
+        break;
+
+    }else{
+        alert(`Usted erró. Intento no. ${i} de 3`)
+    }
+        i++;
+
+
 }
