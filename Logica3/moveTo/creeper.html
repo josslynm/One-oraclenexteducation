@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <canvas width="800" height="400"></canvas>
+
+    <script>
+        let pantalla = document.querySelector("canvas");
+        let pincel = pantalla.getContext("2d");
+
+        pincel.fillStyle = "darkgreen";
+        pincel.fillRect(0,0,350,300);
+        
+
+        /// LINETO:
+        //4
+        pincel.fillStyle = "black";
+        pincel.beginPath();
+        pincel.moveTo(140,140);//ORIGEN
+        pincel.lineTo(140,240);//LARGO A
+        pincel.lineTo(210,240);//ANCHO b
+        pincel.lineTo(210,140);//lARGO B
+        pincel.lineTo(140,140);//lARGO a
+        pincel.fill();
+   
+
+        //2
+        pincel.fillStyle = "black";
+        pincel.beginPath();
+        pincel.moveTo(50,50);//ORIGEN
+        pincel.lineTo(140,50);//largo a
+        pincel.lineTo(140,140);//ancho a
+        pincel.lineTo(50,140);//largo a
+        pincel.fill();
+
+        //3
+        pincel.fillStyle = "black";
+        pincel.beginPath();
+        pincel.moveTo(300,50);//ORIGEN
+        pincel.lineTo(210,50);//ancho a 
+        pincel.lineTo(210,140);//largo
+        pincel.lineTo(300,140);//ancho b
+        pincel.fill();
+
+        //5 Rectángulos 5 y 6: 40, 110
+        pincel.fillStyle = "black";
+        pincel.beginPath();
+        pincel.moveTo(140,300);//ORIGEN
+        pincel.lineTo(140,190);//ancho a 
+        pincel.lineTo(100,190);//largo
+        pincel.lineTo(100,300);//ancho b
+        //pincel.lineTo(140,300);
+        pincel.fill();
+
+        pincel.fillStyle = "black";
+        pincel.beginPath();
+        pincel.moveTo(210,300);//ORIGEN
+        pincel.lineTo(210,190);//ancho a 
+        pincel.lineTo(250,190);//largo
+        pincel.lineTo(250,300);//ancho b
+        pincel.fill();
+
+
+        //Rect
+        pincel.fillStyle = "darkgreen";
+        pincel.fillRect(400,0,350,300);
+
+        pincel.fillStyle ="black";
+        //x,y,w,h
+        pincel.fillRect(450,50,90,90);
+        pincel.fillRect(610,50,90,90);
+        pincel.fillRect(540,140,70,100);
+        pincel.fillRect(500,190,40,110);
+        pincel.fillRect(610,190,40,110);
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
