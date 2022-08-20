@@ -1,0 +1,122 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var pantalla = document.querySelector('canvas');
+    var pincel = pantalla.getContext('2d');
+
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    var puedoDibujar = false;
+
+
+    pincel.fillStyle = "red";
+    pincel.fillRect(0,0,50,50);
+    
+    pincel.fillStyle = "green";
+    pincel.fillRect(50,0,50,50);
+
+    pincel.fillStyle = "blue";
+    pincel.fillRect(100,0,50,50);
+
+    let currentlyColour = "blue";
+
+        function colorChoice(evento) {
+
+            var x = evento.pageX - pantalla.offsetLeft;
+            var y = evento.pageY - pantalla.offsetTop;
+                
+
+                if( (x < 50)&&
+                    (x > 0)&&
+                    (y > 0)&&
+                    (y < 50)){
+                    console.log("oprimió el rojo");
+                    currentlyColour = "red";
+                    console.log(currentlyColour);
+                    
+
+                    }else if (  (x < 100)&&
+                            (x > 50)&&
+                            (y > 0)&&
+                            (y <50)) {
+                    console.log("oprimió el verde");
+                    currentlyColour = "green";
+                    console.log(currentlyColour);
+
+
+                    } else if(  (x<150)&&
+                            (x>100)&&
+                            (y>0)&&
+                            (y<50)) {
+                    console.log("oprimió el azul");
+                    currentlyColour = "blue";
+                    console.log(currentlyColour);
+                    
+
+                }
+        } 
+
+
+    function dibujarCirculo(x,y,currentlyColour) {
+
+        if(puedoDibujar) {
+            pincel.fillStyle = currentlyColour;
+            pincel.beginPath();
+            pincel.arc(x, y, 5, 0, 2 * 3.14);
+            pincel.fill();
+        }
+
+    }
+
+    function puedeDisenharArea(xCoordenada,yCoordenada){
+
+        if ((xCoordenada >= 0 && xCoordenada < 150) && 
+            (yCoordenada >=0 && yCoordenada < 50)) {
+
+            return false;
+
+        } else{
+
+            return true;
+
+        }
+
+    }       
+
+    function capturarMovimientoDelMouse(evento){
+
+        var x = evento.pageX - pantalla.offsetLeft;
+        var y = evento.pageY - pantalla.offsetTop;
+
+        if (puedeDisenharArea(x,y)){
+
+            dibujarCirculo(x,y,currentlyColour);
+
+        }
+
+    }
+
+    pantalla.onmousemove = dibujarCirculo;
+
+    function habilitarDibujar() {
+
+        puedoDibujar = true;
+    }
+
+    function deshabilitarDibujar() {
+
+        puedoDibujar = false;
+    }
+
+
+pantalla.onclick = colorChoice;
+pantalla.onmousemove = capturarMovimientoDelMouse;
+
+pantalla.onmousedown = habilitarDibujar;
+pantalla.onmouseup = deshabilitarDibujar;
+
+
+
+</script>
+

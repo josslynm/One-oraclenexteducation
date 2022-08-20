@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");    
+        pincel.fillStyle = "lightgrey";
+        pincel.fillRect(0,0,600,400);
+        
+        let radio=10;
+
+    function circumferenceDesign(x,y,radio,color){
+            pincel.fillStyle =color;
+            pincel.beginPath();
+            pincel.arc(x,y,radio,0,2*Math.PI);
+            pincel.fill();
+        }
+
+
+    function cleanScreen(){
+        pincel.clearRect(0,0,600,400);
+    }
+
+    function objectiveDesign(x,y) {
+
+        circumferenceDesign(x,y,radio+20,"red");
+        circumferenceDesign(x,y,radio+10,"white");
+        circumferenceDesign(x,y,radio,"red"); 
+    }
+
+    function randomPosition(max) {
+        return Math.floor(Math.random()*max);
+    }
+    let randomX;
+    let randomY;
+    function refreshScreen(){
+
+        cleanScreen();
+        randomX = randomPosition(600);
+        randomY = randomPosition(400);
+        objectiveDesign(randomX,randomY);
+
+    }   
+    
+    setInterval(refreshScreen,1000);//sin parentesis para que no se ejecute inmediatamente refresh y se accione por medio de setInterval
+
+    function shoot(evento) {
+        let x = evento.pageX - pantalla.offsetLeft; //event.pageX returna la coordenada
+        let y = evento.pageY - pantalla.offsetTop;// offset es el espacio sobrante fuera del canva
+
+        if ((x < randomX + radio)&&
+            (x > randomX - radio)&&
+            (y < randomY + radio)&&
+            (y > randomY - radio)) {
+                alert("Win!");   
+        }
+        
+    }
+    pantalla.onclick = shoot;
+
+
+    </script>
+    
+</body>
+</html>
