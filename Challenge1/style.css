@@ -1,0 +1,71 @@
+:root{
+    --blanco: white;
+    --fondo: #FFEB82;
+    --foot: #E0C637;
+
+}
+
+html{
+    font-size: 62.5;
+    /* gracias a esto el padding no afecta al tamaño */
+    box-sizing: border-box; /* hack para box model */
+}
+
+*, *:before, *:after {
+    box-sizing: inherit; 
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    background:var(--fondo);
+}
+
+.titulo{
+
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    padding-top: 20px;
+    padding-bottom: 20px ;
+    background-image: linear-gradient(to top, var(--fondo) 0%, var(--blanco) 100%);
+}
+
+h1{
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.welcome{
+    text-align: center;
+}
+
+.encryptor{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.encryptor div{
+    padding: 0.2em;
+}
+
+#inputSelector{
+    width: 400px;
+    max-width: 700px;
+    opacity: 0.2;
+}
+
+.encryptor-result{
+    display: flex;
+    flex-direction: column;
+}
+
+footer{
+    text-align: center;
+    background-image: linear-gradient(to top, var(--foot) 0%, var(--fondo) 100%);
+    color: rgb(90, 87, 87);
+    font-family: 'Times New Roman', Times, serif;
+    padding: 40px;
+}
